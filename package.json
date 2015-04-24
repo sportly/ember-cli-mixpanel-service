@@ -1,6 +1,6 @@
 {
   "name": "ember-cli-mixpanel-service",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Adds mixpanel as a service injected onto routes and controllers",
   "directories": {},
   "scripts": {},
