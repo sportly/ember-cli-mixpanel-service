@@ -2,8 +2,15 @@
   "name": "ember-cli-mixpanel-service",
   "version": "0.0.2",
   "description": "Adds mixpanel as a service injected onto routes and controllers",
-  "directories": {},
-  "scripts": {},
+  "directories": {
+    "doc": "doc",
+    "test": "tests"
+  },
+  "scripts": {
+    "start": "ember server",
+    "build": "ember build",
+    "test": "ember try:testall"
+  },
   "repository": {
     "type": "git",
     "url": "git@github.com:sportly/ember-cli-mixpanel-service.git"
@@ -14,10 +21,33 @@
   },
   "author": "Kyle Nathan",
   "license": "MIT",
-  "devDependencies": {},
+  "devDependencies": {
+    "broccoli-asset-rev": "^2.0.2",
+    "ember-cli": "1.13.1",
+    "ember-cli-app-version": "0.4.0",
+    "ember-cli-content-security-policy": "0.4.0",
+    "ember-cli-dependency-checker": "^1.0.0",
+    "ember-cli-htmlbars": "0.7.9",
+    "ember-cli-htmlbars-inline-precompile": "^0.1.1",
+    "ember-cli-ic-ajax": "0.2.1",
+    "ember-cli-inject-live-reload": "^1.3.0",
+    "ember-cli-qunit": "0.3.15",
+    "ember-cli-release": "0.2.3",
+    "ember-cli-uglify": "^1.0.1",
+    "ember-data": "1.13.5",
+    "ember-disable-proxy-controllers": "^1.0.0",
+    "ember-export-application-global": "^1.0.2",
+    "ember-disable-prototype-extensions": "^1.0.0",
+    "ember-try": "0.0.6"
+  },
   "keywords": [
     "ember-addon",
     "mixpanel"
   ],
-  "ember-addon": {}
+  "dependencies": {
+    "ember-cli-babel": "^5.0.0"
+  },
+  "ember-addon": {
+    "configPath": "tests/dummy/config"
+  }
 }
