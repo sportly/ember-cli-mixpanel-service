@@ -77,13 +77,14 @@ Alias of the mixpanel `identify` function
 
 Alias of the mixpanel `alias` function
 
+### register
+
+`register: function(traits, options, callback)`
+
+Alias of the mixpanel `register` function
+
 ### peopleSet
 
 `peopleSet: function(attributes)`
 
 Alias of the mixpanel `people.set` function
-
-
-
-
-
