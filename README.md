@@ -31,40 +31,53 @@ Add your typekit kitId to `config/environment.js` and you're good to go. A coupl
 
 ```
 
-### Configuration Parameters
+## Configuration Parameters
 
 * `enabled` (Default: `true`): Enable mixpanel tracking
 * `LOG_EVENT_TRACKING` (Default: `false`): Output logging to the console.
 * `token` (Default: `null`): Mandatory mixpanel api token
 
 
+## CORS Content Security Policy
+
+You should add the Mixpanel API to your app's content security policy. To do this add api.mixpanel.com to the 'connect-src' key in the ENV.contentSecurityPolicy hash as below:
+
+```
+// environment.js
+    ENV.contentSecurityPolicy = {
+      'connect-src': "'self' api.mixpanel.com ..."
+      ...
+    }
+```
+
+
 ## Mixpanel API
 
-# pageviews
+### pageviews
 
 `trackPageView: function(page)`
 
 Note: Pageviews are tracked automatically, no mixins required.
 
-# events
+### events
 
 `trackEvent: function(event, properties, options, callback)`
 
 Alias of the mixpanel `track` function
 
-# identify
+### identify
 
 `identify: function(userId, traits, options, callback)`
 
 Alias of the mixpanel `identify` function
 
-# alias
+### alias
 
 `alias: function(userId, previousId, options, callback)`
 
 Alias of the mixpanel `alias` function
 
-# peopleSet
+### peopleSet
 
 `peopleSet: function(attributes)`
 
