@@ -1,5 +1,6 @@
 # ember-cli-mixpanel-service
 
+[![npm version](https://badge.fury.io/js/ember-cli-mixpanel-service.svg)](http://badge.fury.io/js/ember-cli-mixpanel-service)
 [![Code Climate](https://codeclimate.com/github/sportly/ember-cli-mixpanel-service/badges/gpa.svg)](https://codeclimate.com/github/sportly/ember-cli-mixpanel-service)
 
 This ember-cli addon injects mixpanel into your ember app.
