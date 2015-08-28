@@ -1,5 +1,7 @@
 # ember-cli-mixpanel-service
 
+[![Code Climate](https://codeclimate.com/github/sportly/ember-cli-mixpanel-service/badges/gpa.svg)](https://codeclimate.com/github/sportly/ember-cli-mixpanel-service)
+
 This ember-cli addon injects mixpanel into your ember app.
 
 The mixpanel js is injected into the app's index.html. Pageview tracking is automatic, no mixins required. The mixpanel service is injected into your apps controllers and routes and is available as `this.mixpanel`.
