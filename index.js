@@ -4,7 +4,7 @@
 module.exports = {
   name: 'ember-cli-mixpanel-service',
   contentFor: function(type, config) {
-    if (config.mixpanel.enabled === false) {
+    if (!config.mixpanel || config.mixpanel.enabled === false) {
       return;
     }
     if (type === 'head-footer') {
