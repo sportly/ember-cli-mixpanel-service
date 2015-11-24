@@ -1,4 +1,5 @@
-export function initialize(registry, application) {
+export function initialize() {
+  let application = arguments[1] || arguments[0];
   application.inject('route', 'mixpanel', 'service:mixpanel');
   application.inject('router:main', 'mixpanel', 'service:mixpanel');
   application.inject('controller', 'mixpanel', 'service:mixpanel');
