@@ -27,7 +27,7 @@ Add your typekit kitId to `config/environment.js` and you're good to go. A coupl
 ```js
 // environment.js
 
-    ENV.mixpanel: {
+    ENV.mixpanel = {
       enabled: false,
       LOG_EVENT_TRACKING: false,
       token: 'abcd123456789'
