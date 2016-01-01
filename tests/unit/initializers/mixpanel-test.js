@@ -31,7 +31,7 @@ test('initialize', function (assert) {
   const spy = Edgar.createSpy(application, 'inject');
 
   initialize(null, application);
-  assert.equal(spy.called(), 3, 'inject was called 3 times');
+  assert.equal(spy.called(), 4, 'inject was called 4 times');
 });
 
 test('initialize route injection', function (assert) {
@@ -63,6 +63,17 @@ test('initialize controller injection', function (assert) {
 
   let args = spy.calledWith(2);
   assert.equal(args[0], 'controller', 'injected into controllers');
+  assert.equal(args[1], 'mixpanel', 'correct name');
+  assert.equal(args[2], 'service:mixpanel', 'correct registration');
+});
+
+test('initialize component injection', function (assert) {
+  const spy = Edgar.createSpy(application, 'inject');
+
+  initialize(null, application);
+
+  let args = spy.calledWith(3);
+  assert.equal(args[0], 'component', 'injected into controllers');
   assert.equal(args[1], 'mixpanel', 'correct name');
   assert.equal(args[2], 'service:mixpanel', 'correct registration');
 });
