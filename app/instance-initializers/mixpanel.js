@@ -1,14 +1,13 @@
 import Config from '../config/environment';
 
-export function initialize(appInstance) {
+export function initialize(instance) {
   if (Config.mixpanel.enabled) {
-    if (typeof(appInstance.lookup) === 'undefined') {
-      appInstance = appInstance.container;
+    var router = instance.container.lookup('router:main');
+    if (Config.mixpanel.autoPageviewTracking == undefined || Config.mixpanel.autoPageviewTracking) {
+      router.on('didTransition', function() {
+        instance.container.lookup('service:mixpanel').trackPageView(this.get('url'));
+      });
     }
-    let router = appInstance.lookup('router:main');
-    router.on('didTransition', function() {
-      appInstance.lookup('service:mixpanel').trackPageView(this.get('url'));
-    });
   }
 }
 
