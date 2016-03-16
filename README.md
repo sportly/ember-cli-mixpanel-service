@@ -40,6 +40,7 @@ Add your typekit kitId to `config/environment.js` and you're good to go. A coupl
 * `enabled` (Default: `true`): Enable mixpanel tracking
 * `autoPageviewTracking` (Default: `true`): Enable automatic pageview tracking
 * `pageViewAttribute` (Default: `url`): Use some other attribute available to the router instead of `url` for pageview tracking
+* `attributeOverrides` (Default: `{}`): Configure overrides, if any, for any of the attributes [mixpanel stores by default](https://mixpanel.com/help/questions/articles/what-properties-do-mixpanels-libraries-store-by-default)
 * `LOG_EVENT_TRACKING` (Default: `false`): Output logging to the console.
 * `token` (Default: `null`): Mandatory mixpanel api token
 
@@ -61,9 +62,9 @@ You should add the Mixpanel API to your app's content security policy. To do thi
 
 ### pageviews
 
-`trackPageView: function(page)`
+`trackPageView: function(page, overrides = {})`
 
-Note: Pageviews are tracked automatically, no mixins required.
+Note: Pageviews are tracked automatically, no mixins required. You can override [any properties mixpanel stores by default](https://mixpanel.com/help/questions/articles/what-properties-do-mixpanels-libraries-store-by-default) by providing an optional `overrides` object.
 
 ### events
 
