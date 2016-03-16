@@ -5,7 +5,7 @@ export function initialize(instance) {
     var router = instance.container.lookup('router:main');
     if (Config.mixpanel.autoPageviewTracking == undefined || Config.mixpanel.autoPageviewTracking) {
       router.on('didTransition', function() {
-        instance.container.lookup('service:mixpanel').trackPageView(this.get('url'));
+        instance.container.lookup('service:mixpanel').trackPageView(this.get(Config.mixpanel.pageViewAttribute));
       });
     }
   }
