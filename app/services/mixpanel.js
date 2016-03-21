@@ -14,14 +14,14 @@ export default Ember.Service.extend({
         Ember.Logger.info('[Mixpanel] ', arguments);
     },
 
-    trackPageView: function(page) {
+    trackPageView: function(page, overrides = {}) {
         if (this.pageHasAnalytics()) {
             if (!page) {
                 var loc = window.location;
                 page = loc.hash ? loc.hash.substring(1) : loc.pathname + loc.search;
             }
 
-            window.mixpanel.track("visit", {pageName: page});
+            window.mixpanel.track("visit", Object.assign({pageName: page}, overrides));
         }
 
         if (this.logTrackingEnabled()) {
