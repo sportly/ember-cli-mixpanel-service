@@ -18,7 +18,8 @@ export function initialize(instance) {
         } else {
           mixpanelService = instance.container.lookup('service:mixpanel');
         }
-        mixpanelService.trackPageView(this.get(Config.mixpanel.pageViewAttribute), attributeOverrides);
+        let pageViewAttribute = Config.mixpanel.pageViewAttribute || 'url';
+        mixpanelService.trackPageView(this.get(pageViewAttribute), attributeOverrides);
       });
     }
   }
