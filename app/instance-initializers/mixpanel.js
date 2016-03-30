@@ -1,7 +1,7 @@
-import Config from '../config/environment';
+import Configuration from 'ember-cli-mixpanel-service/configuration';
 
 export function initialize(instance) {
-  if (Config.mixpanel.enabled) {
+  if (Configuration.enabled) {
     let router;
     if (typeof instance.lookup === 'function') {
       router = instance.lookup('router:main');
@@ -9,19 +9,17 @@ export function initialize(instance) {
       router = instance.container.lookup('router:main');
     }
 
-    if (Config.mixpanel.autoPageviewTracking == undefined || Config.mixpanel.autoPageviewTracking) {
-      router.on('didTransition', function() {
-        var attributeOverrides = Config.mixpanel.attributeOverrides || {};
-        let mixpanelService;
-        if (typeof instance.lookup === 'function') {
-          mixpanelService = instance.lookup('service:mixpanel');
-        } else {
-          mixpanelService = instance.container.lookup('service:mixpanel');
-        }
-        let pageViewAttribute = Config.mixpanel.pageViewAttribute || 'url';
-        mixpanelService.trackPageView(this.get(pageViewAttribute), attributeOverrides);
-      });
-    }
+    router.on('didTransition', function() {
+      var attributeOverrides = Configuration.attributeOverrides;
+      let mixpanelService;
+      if (typeof instance.lookup === 'function') {
+        mixpanelService = instance.lookup('service:mixpanel');
+      } else {
+        mixpanelService = instance.container.lookup('service:mixpanel');
+      }
+      let pageViewAttribute = Configuration.pageViewAttribute;
+      mixpanelService.trackPageView(this.get(pageViewAttribute), attributeOverrides);
+    });
   }
 }
 

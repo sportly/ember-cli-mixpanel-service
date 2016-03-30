@@ -1,13 +1,13 @@
 import Ember from 'ember';
-import Config from '../config/environment';
+import Configuration from 'ember-cli-mixpanel-service/configuration';
 
 export default Ember.Service.extend({
     pageHasAnalytics: function() {
-        return window.mixpanel && typeof window.mixpanel === "object" && Config.mixpanel.enabled;
+        return window.mixpanel && typeof window.mixpanel === "object" && Configuration.enabled;
     },
 
     logTrackingEnabled: function() {
-        return !!Config && !! Config.mixpanel.LOG_EVENT_TRACKING;
+        return !!Configuration && !! Configuration.LOG_EVENT_TRACKING;
     },
 
     logTracking: function() {
