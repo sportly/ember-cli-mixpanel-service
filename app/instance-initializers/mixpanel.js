@@ -9,17 +9,19 @@ export function initialize(instance) {
       router = instance.container.lookup('router:main');
     }
 
-    router.on('didTransition', function() {
-      var attributeOverrides = Configuration.attributeOverrides;
-      let mixpanelService;
-      if (typeof instance.lookup === 'function') {
-        mixpanelService = instance.lookup('service:mixpanel');
-      } else {
-        mixpanelService = instance.container.lookup('service:mixpanel');
-      }
-      let pageViewAttribute = Configuration.pageViewAttribute;
-      mixpanelService.trackPageView(this.get(pageViewAttribute), attributeOverrides);
-    });
+    if (Configuration.autoPageviewTracking == undefined || Configuration.autoPageviewTracking) {
+      router.on('didTransition', function() {
+        var attributeOverrides = Configuration.attributeOverrides;
+        let mixpanelService;
+        if (typeof instance.lookup === 'function') {
+          mixpanelService = instance.lookup('service:mixpanel');
+        } else {
+          mixpanelService = instance.container.lookup('service:mixpanel');
+        }
+        let pageViewAttribute = Configuration.pageViewAttribute;
+        mixpanelService.trackPageView(this.get(pageViewAttribute), attributeOverrides);
+      });
+    }
   }
 }
 
