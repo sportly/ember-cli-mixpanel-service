@@ -6,9 +6,7 @@
 
 This ember-cli addon injects mixpanel into your ember app.
 
-The mixpanel js is injected into the app's index.html. Pageview tracking is by default automatic, no mixins required. The mixpanel service is injected into your apps controllers and routes and is available as `this.mixpanel`.
-
-This is close port of https://github.com/remerge/ember-cli-mixpanel but refactored as a service.
+The mixpanel js is injected into the app's index.html. Pageview tracking is by default automatic, no mixins required. The mixpanel service is injected into your apps controllers and routes and is available as `this.get('mixpanel')`.
 
 More on mixpanel at http://www.mixpanel.com
 
@@ -22,7 +20,7 @@ ember install ember-cli-mixpanel-service
 
 This plugin uses the ember-cli project's configuration as defined in `config/environment.js`.
 
-Add your typekit kitId to `config/environment.js` and you're good to go. A couple more params below
+Add your Mixpanel API token to `config/environment.js` and you're good to go. A couple more params below
 
 ```js
 // environment.js
@@ -42,12 +40,12 @@ Add your typekit kitId to `config/environment.js` and you're good to go. A coupl
 * `pageViewAttribute` (Default: `url`): Use some other attribute available to the router instead of `url` for pageview tracking
 * `attributeOverrides` (Default: `{}`): Configure overrides, if any, for any of the attributes [mixpanel stores by default](https://mixpanel.com/help/questions/articles/what-properties-do-mixpanels-libraries-store-by-default)
 * `LOG_EVENT_TRACKING` (Default: `false`): Output logging to the console.
-* `token` (Default: `null`): Mandatory mixpanel api token
+* `token` (Default: `null`): Mandatory Mixpanel API token
 
 
 ## CORS Content Security Policy
 
-You should add the Mixpanel API to your app's content security policy. To do this add api.mixpanel.com to the 'connect-src' key in the ENV.contentSecurityPolicy hash as below:
+If you use [ember-cli-content-security-policy](https://github.com/rwjblue/ember-cli-content-security-policy) you should add the Mixpanel API to your app's content security policy settings. To do this add api.mixpanel.com to the 'connect-src' key in the ENV.contentSecurityPolicy hash as below:
 
 ```
 // environment.js
@@ -64,7 +62,7 @@ You should add the Mixpanel API to your app's content security policy. To do thi
 
 `trackPageView: function(page, overrides = {})`
 
-Note: Pageviews are tracked automatically, no mixins required. You can override [any properties mixpanel stores by default](https://mixpanel.com/help/questions/articles/what-properties-do-mixpanels-libraries-store-by-default) by providing an optional `overrides` object.
+Note: Pageviews are tracked automatically by default, no mixins required. You can override [any properties mixpanel stores by default](https://mixpanel.com/help/questions/articles/what-properties-do-mixpanels-libraries-store-by-default) by providing an optional `overrides` object.
 
 ### events
 
