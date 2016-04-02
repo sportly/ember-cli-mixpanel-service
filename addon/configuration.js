@@ -4,7 +4,7 @@ const { getWithDefault } = Ember;
 
 const DEFAULTS = {
     enabled: true,
-    autoPageviewTracking: false,
+    autoPageviewTracking: true,
     pageViewAttribute: 'url',
     attributeOverrides: {},
     LOG_EVENT_TRACKING: false,
