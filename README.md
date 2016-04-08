@@ -15,7 +15,7 @@ More on mixpanel at http://www.mixpanel.com
 ## Installation
 
 ```
-ember install:addon ember-cli-mixpanel-service
+ember install ember-cli-mixpanel-service
 ```
 
 # Configuration
