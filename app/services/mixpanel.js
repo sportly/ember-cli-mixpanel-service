@@ -78,5 +78,16 @@ export default Ember.Service.extend({
         if (this.logTrackingEnabled()) {
             this.logTracking('people.set', attributes);
         }
+    },
+
+    peopleSetOnce: function(attributes) {
+
+        if (this.pageHasAnalytics()) {
+            window.mixpanel.people.set_once(attributes);
+        }
+
+        if (this.logTrackingEnabled()) {
+            this.logTracking('people.set_once', attributes);
+        }
     }
 });
